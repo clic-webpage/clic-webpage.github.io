@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Beyond Behavior Cloning: Robustness through Interactive Imitation and Contrastive Learning</title>
+        <title>From Action Labels to Sets: Reformulating Action Supervision for Learning from Corrective Feedback </title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=1000">
         <link rel="stylesheet" href="https://use.typekit.net/quv7bsd.css"> <!-- fonts -->
@@ -20,11 +20,11 @@
                         <p><a href="https://github.com/todo">Code Coming soon(GitHub)</a> &nbsp &nbsp <a href="https://arxiv.org/todo">Paper (arXiv)</a><p>
                     </div> -->
                     <div id="profile-name" style="text-align: center; white-space: nowrap; font-size: 200%;">
-                        <b style="line-height: 1.5;">Beyond Behavior Cloning: Robustness through <br> Interactive Imitation and Contrastive Learning</b>
+                        <b style="line-height: 1.5;">From Action Labels to Sets:<br>  Reformulating Action Supervision for Learning from Corrective Feedback</b>
                         <p><br>Under Review</p>
                         <br>
                         <p>
-                            <a href="https://github.com/">Code Coming Soon (GitHub)</a> &nbsp;&nbsp;
+                            <a href="https://github.com/clic-webpage/CLIC">Code (GitHub)</a> &nbsp;&nbsp;
                             <!-- <a href="https://arxiv.org/todo">Paper (arXiv)</a> -->
                         </p>
                     </div>
@@ -33,7 +33,7 @@
                     </div>
 
                     <p>
-                        <b>Abstract</b>. Behavior cloning (BC) traditionally relies on demonstration data, assuming the demonstrated actions are optimal. This can lead to overfitting under noisy data, particularly when expressive models are used (e.g., the energy-based model in Implicit BC). To address this, we extend behavior cloning into an iterative process of optimal action estimation within the Interactive Imitation Learning framework. Specifically, we introduce Contrastive policy Learning from Interactive Corrections (CLIC). CLIC leverages human corrections to estimate a set of desired actions and optimizes the policy to select actions from this set. We provide theoretical guarantees for the convergence of the desired action set to optimal actions in both single and multiple optimal action cases. Extensive simulation and real-robot experiments validate CLIC's advantages over existing state-of-the-art methods, including stable training of energy-based models, robustness to feedback noise, and adaptability to diverse feedback types beyond demonstrations.
+                        <b>Abstract</b>. Behavior cloning (BC) learns policies by treating human demonstrations as pointwise action labels. While effective with accurate action labels, this formulation is brittle in practice: when human-provided action is imperfect, treating each label as an exact target can steer the policy away from the underlying desired behavior, particularly when expressive models are used (e.g., energy-based models). Noting that this brittleness stems from pointwise supervision, we propose a human-in-the-loop online learning alternative that reformulates supervision as set-valued action targets derived from corrective feedback. We introduce \textit{Contrastive policy Learning from Interactive Corrections (CLIC)}. CLIC leverages human corrections to construct a set of desired actions and optimizes the policy to place probability mass over these sets rather than a single action target. This formulation naturally accommodates both absolute and relative corrections, and enables the aggregation of multiple corrections into progressively refined desired action sets. Extensive simulation and real-robot experiments show that the proposed set-valued supervision leads to effective policy learning across diverse feedback settings: CLIC outperforms state-of-the-art baselines, remains competitive under accurate feedback, is substantially more robust under noisy, relative, and partial feedback, and supports complex multi-modal behaviors.
                     </p>
                 </div>
                 <div style="clear: both;"></div>
@@ -47,13 +47,15 @@
                         <video height="240" width="100%" playsinline="" muted="" autoplay="" loop="">
                             <source src="images_clic/video_CLIC_iteratively_converge.mp4" type="video/mp4">
                         </video>
-                        <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">The iterative process of CLIC involves shrinking the desired action space (gray) while updating the EBM accordingly.</p>
+                        <!-- <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">The iterative process of CLIC involves shrinking the desired action space (gray) while updating the EBM accordingly.</p> -->
+                        <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">CLIC aggregates corrective feedback into progressively refined desired action sets (gray) while updating the policy accordingly.</p>
                     </div>
                     <div class="highlight-proj2in3">
                         <div class="image" style="text-align: center; margin-top: 1em 0;">
                             <img src="images_clic/CLIC_reduces_to_IBC2.png" alt="" style="height: 240px; width: auto;margin-left: -10px; margin-bottom:0 " />
                         </div>
-                        <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">CLIC with circular desired action spaces reduces to Implicit BC when the raduis going to zero, and the policy-weighted loss is replaced by a uniform Bayes loss.</p>
+                        <!-- <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">CLIC with circular desired action spaces reduces to Implicit BC when the raduis going to zero, and the policy-weighted loss is replaced by a uniform Bayes loss.</p> -->
+                        <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">Pointwise supervision in Implicit BC arises as a limiting case of CLIC’s set-valued supervision: with circular desired action sets, the set collapses to a single action as the radius goes to zero, and the policy-weighted loss reduces to a uniform Bayes loss.</p>
                     </div>
                 </div>
                 <div class="section recent-work">
@@ -93,8 +95,7 @@
             <!-- simulation results -->
             <div class="section paper">
                 <h1>Simulation benchmarks</h1>
-                <p>Our CLIC method outperforms prior state-of-the-art on 4 tasks, where we consider various feedback types for each task. Examples of the trajectory rollout of CLIC method (after training) using accurate demonstration are shown in the video below:</p><br>
-
+                <p>We evaluate CLIC on four simulation tasks under diverse feedback settings, including accurate, noisy, relative, and partial feedback. These experiments show that set-valued supervision remains competitive under accurate feedback and is more robust under imperfect feedback. Example post-training rollouts under accurate demonstration feedback are shown below:</p><br>
                 
                 <video height="auto" width="100%" playsinline="" muted="" autoplay="" loop="">
                     <source src="images_clic/CLIC_simulation_compressed.mp4" type="video/mp4">
