@@ -131,6 +131,44 @@ h2 {
     margin-bottom: 13px;
 }
 
+.author-block {
+    margin-top: 14px;
+}
+
+.author-block p {
+    margin-bottom: 8px;
+}
+
+.author-block .authors {
+    color: #191e3f;
+    font-size: 19px;
+    line-height: 30px;
+}
+
+.author-block .affiliations {
+    color: #5f6872;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.author-block sup {
+    font-size: 70%;
+    line-height: 0;
+    vertical-align: super;
+}
+
+.code-link {
+    align-items: center;
+    display: inline-flex;
+    gap: 8px;
+}
+
+.github-icon {
+    fill: currentColor;
+    height: 20px;
+    width: 20px;
+}
+
 #profile-desc {
     width: 100%;
     float: left;
@@ -153,6 +191,25 @@ h2 {
 
 .paper a:hover {
     border-bottom: none;
+}
+
+.benchmark-findings {
+    font-size: 18px;
+    line-height: 27px;
+    margin: 12px 30px 18px 56px;
+}
+
+.benchmark-findings li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.benchmark-findings li:before {
+    color: #49bf9d;
+    content: "•";
+    font-weight: bold;
+    left: -24px;
+    position: absolute;
 }
 
 

@@ -21,10 +21,19 @@
                     </div> -->
                     <div id="profile-name" style="text-align: center; white-space: nowrap; font-size: 200%;">
                         <b style="line-height: 1.5;">From Action Labels to Sets: Reformulating<br> Action Supervision for Learning from Corrective Feedback</b>
-                        <p><br>Under Review</p>
-                        <br>
+                        <div class="author-block">
+                            <p class="authors">Zhaoting Li<sup>1</sup>, Rodrigo P&eacute;rez-Dattari<sup>2</sup>, Robert Babuska<sup>1</sup>, Cosimo Della Santina<sup>1</sup>, and Jens Kober<sup>3</sup></p>
+                            <p class="affiliations"><sup>1</sup>Delft University of Technology, The Netherlands &nbsp;&nbsp; <sup>2</sup>KTH, Sweden &nbsp;&nbsp; <sup>3</sup>University of Stuttgart, Germany</p>
+                        </div>
+                        <!-- <p><br>Under Review</p> -->
+                        <!-- <br> -->
                         <p>
-                            <a href="https://github.com/clic-webpage/CLIC">Code (GitHub)</a> &nbsp;&nbsp;
+                            <a class="code-link" href="https://github.com/clic-webpage/CLIC">
+                                <svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 0 1 8 3.86c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+                                </svg>
+                                Code 
+                            </a> &nbsp;&nbsp;
                             <!-- <a href="https://arxiv.org/todo">Paper (arXiv)</a> -->
                         </p>
                     </div>
@@ -33,11 +42,10 @@
                     </div>
 
                     <p style="line-height: 1.6;">
-                    <b>Abstract.</b> Behavior cloning (BC) learns policies by treating human demonstrations as pointwise action labels. While effective with accurate action labels, this formulation is brittle in practice: when a human-provided action is imperfect, treating each label as an exact target can steer the policy away from the underlying desired behavior, particularly for expressive models such as energy-based models. Noting that this brittleness stems from pointwise supervision, we propose a human-in-the-loop online learning alternative that reformulates supervision as set-valued action targets derived from corrective feedback.
-                    </p>
+                    <b>Abstract.</b> Behavior cloning (BC) optimizes policies by treating human demonstrations as pointwise action labels. While effective with accurate action labels, this formulation is brittle in practice: when human-provided actions are imperfect, treating each label as an exact target can steer the policy away from the underlying desired behavior, particularly when expressive models are used (e.g., energy-based models). As a result, we propose a human-in-the-loop alternative that replaces pointwise supervision with set-valued action targets.</p>
 
                     <p style="line-height: 1.6;">
-                    We introduce <i>Contrastive policy Learning from Interactive Corrections (CLIC)</i>. CLIC constructs desired action sets from human corrections and trains the policy to place probability mass over these sets rather than a single action target. This formulation naturally accommodates both absolute and relative corrections, and enables the aggregation of multiple corrections into progressively refined desired action sets. Extensive simulation and real-robot experiments show that the proposed set-valued supervision leads to effective policy learning across diverse feedback settings: CLIC outperforms state-of-the-art baselines, remains competitive under accurate feedback, is substantially more robust under noisy, relative, and partial feedback, and supports complex multi-modal behaviors.
+                    We introduce <i>Contrastive policy Learning from Interactive Corrections (CLIC)</i>. CLIC leverages human corrections to construct and refine sets of desired actions, and optimizes a policy to place probability mass over these sets rather than over a single action target. This formulation naturally accommodates both absolute and relative corrections and can represent complex multimodal behaviors. Extensive simulation and real-robot experiments show that the proposed approach leads to effective policy learning across diverse settings: CLIC remains competitive with the state of the art under accurate data while being substantially more robust under noisy, relative, and partial feedback.
                     </p>
                 </div>
                 <div style="clear: both;"></div>
@@ -52,14 +60,14 @@
                             <source src="images_clic/video_CLIC_iteratively_converge.mp4" type="video/mp4">
                         </video>
                         <!-- <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">The iterative process of CLIC involves shrinking the desired action space (gray) while updating the EBM accordingly.</p> -->
-                        <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">CLIC aggregates corrective feedback into progressively refined desired action sets (gray) while updating the policy accordingly.</p>
+                        <p style="font-size: 15px; margin-top: 0px; margin-left: 0px">CLIC aggregates corrective feedback into progressively refined desired action sets (gray) while updating the policy accordingly.</p>
                     </div>
                     <div class="highlight-proj2in3">
                         <div class="image" style="text-align: center; margin-top: 1em 0;">
-                            <img src="images_clic/CLIC_reduces_to_IBC2.png" alt="" style="height: 240px; width: auto;margin-left: -10px; margin-bottom:0 " />
+                            <img src="images_clic/CLIC_reduces_to_IBC2.png" alt="" style="height: 235px; width: auto;margin-left: -10px; margin-bottom:0 " />
                         </div>
                         <!-- <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">CLIC with circular desired action spaces reduces to Implicit BC when the raduis going to zero, and the policy-weighted loss is replaced by a uniform Bayes loss.</p> -->
-                        <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">Pointwise supervision in Implicit BC arises as a limiting case of CLIC’s set-valued supervision: with circular desired action sets, the set collapses to a single action as the radius goes to zero, and the policy-weighted loss reduces to a uniform Bayes loss.</p>
+                        <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">Pointwise supervision in Implicit BC arises as a limiting case of CLIC’s set-valued supervision: with circular desired action sets, the set collapses to a single action as the radius goes to zero.</p>
                     </div>
                 </div>
                 <div class="section recent-work">
@@ -67,19 +75,19 @@
                         <video height="240" width="100%" playsinline="" muted="" autoplay="" loop="">
                             <source src="images_clic/ball_catching_highligh.mp4" type="video/mp4">
                         </video>
-                        <p style="font-size: 16px; margin-left: 0px">Ball catching: Quick coordination with <br>partial feedback to the end effector <br>or the robot hand.</p>
+                        <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">Ball catching: Quick coordination with <br>partial feedback to the end effector <br>or the robot hand.</p>
                     </div>
                     <div class="highlight-proj">
                         <video height="240" width="100%" playsinline="" muted="" autoplay="" loop="">
                             <source src="images_clic/water-pouring_hightlight.mp4" type="video/mp4">
                         </video>
-                        <p style="font-size: 16px; margin-left: 0px">Water pouring: Learning full pose <br>control to precisely pour <br>liquid (marbles) into a bowl.</p>
+                        <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">Water pouring: Learning full pose <br>control to precisely pour <br>liquid (marbles) into a bowl.</p>
                     </div>
                     <div class="highlight-proj">
                         <video height="240" width="100%" playsinline="" muted="" autoplay="" loop="">
                             <source src="images_clic/InsertT-highlight.mp4" type="video/mp4">
                         </video>
-                        <p style="font-size: 16px; margin-left: 0px">Insert-T: Learning long-horizon multi-<br> modal task that inserts the T-shape <br>object into the U-shape object.</p>
+                        <p style="font-size: 16px; margin-top: 0px; margin-left: 0px">Insert-T: Learning long-horizon multi-<br> modal task that inserts the T-shape <br>object into the U-shape object.</p>
                     </div>
                 </div>
             </div>
@@ -99,7 +107,14 @@
             <!-- simulation results -->
             <div class="section paper">
                 <h1>Simulation benchmarks</h1>
-                <p>We evaluate CLIC on four simulation tasks under diverse feedback settings, including accurate, noisy, relative, and partial feedback. These experiments show that set-valued supervision remains competitive under accurate feedback and is more robust under imperfect feedback. Example post-training rollouts under accurate demonstration feedback are shown below:</p><br>
+                <p>We evaluate CLIC on four simulation tasks under diverse feedback settings, including accurate, noisy, relative, and partial feedback. These experiments show that set-valued supervision remains competitive under accurate feedback and is more robust under imperfect feedback.</p>
+                <ul class="benchmark-findings">
+                    <li>CLIC remains competitive with pointwise BC under accurate feedback.</li>
+                    <li>CLIC shapes implicit policies effectively, whereas pairwise comparison alone is too weak.</li>
+                    <li>CLIC remains robust while baselines degrade under noisy feedback.</li>
+                    <li>CLIC-Half and CLIC-Explicit robustly learn from partial and relative corrections where pointwise supervision fails.</li>
+                </ul>
+                <p>Example post-training rollouts under accurate absolute corrections are shown below:</p><br>
                 
                 <video height="auto" width="100%" playsinline="" muted="" autoplay="" loop="">
                     <source src="images_clic/CLIC_simulation_compressed.mp4" type="video/mp4">
@@ -332,50 +347,12 @@
             <div class="divider"></div>
             <br>
              -->
-
-
-            <div class="section team">
-                <h1>Team</h1>
-                <p>Omited for anonymous review.</p><br>
-                <!-- <div class="people-profile">
-                    <a href="http://www.peteflorence.com/"><img src="images/people/pete.jpg"><p>Pete Florence</p></a>
-                </div>
-                <div class="people-profile">
-                    <a href="https://coreylynch.github.io/"><img src="images/people/corey.jpg"><p>Corey Lynch</p></a>
-                </div>
-                <div class="people-profile">
-                    <a href="https://andyzeng.github.io/"><img src="images/people/andy.jpg"><p>Andy Zeng</p></a>
-                </div>
-                <div class="people-profile">
-                    <a href="https://www.linkedin.com/in/oscar-ramirez-905913b9"><img src="images/people/oscar.jpg"><p>Oscar Ramirez</p></a>
-                </div>
-                <div class="people-profile">
-                    <a href="https://ayzaan.com/"><img src="images/people/ayzaan.jpg"><p>Ayzaan Wahid</p></a>
-                </div>
-                <div class="people-profile">
-                    <a href="https://www.linkedin.com/in/laura-downs-4935081"><img src="images/people/laura.jpg"><p>Laura Downs</p></a>
-                </div>
-                <div class="people-profile">
-                    <a href="https://almostsquare.com/"><img src="images/people/adrian.png"><p>Adrian Wong</p></a>
-                </div>
-                <div class="people-profile">
-                    <a href="http://johnnylee.net/"><img src="images/people/johnny.png"><p>Johnny Lee</p></a>
-                </div>
-                <div class="people-profile">
-                    <a href="https://twitter.com/imordatch"><img src="images/people/igor.jpg"><p>Igor Mordatch</p></a>
-                </div>
-                <div class="people-profile">
-                    <a href="https://jonathantompson.github.io/"><img src="images/people/jonathan_tompson.jpeg"><p>Jonathan Tompson</p></a>
-                </div>
-                 -->
-                <div style="clear: both;"></div>
-            </div>
             <!-- <div class="section teamlogo">
                 <img src="images/logo.png">
                 <p>Robotics at Google</p>
             </div> -->
             <div style="clear: both;"></div>
-            <div class="divider"></div>
+            <!-- <div class="divider"></div> -->
             
 <!--             <div class="section highlights">
                 <h1>Highlights</h1>
@@ -387,11 +364,11 @@
             
             
             
-            <div class="divider"></div>
+            <!-- <div class="divider"></div> -->
             
             <div class="section acknowledgements">
                 <h1>Acknowledgements</h1>
-                <p>Omited for anonymous review.</p><br><br>
+                <p>This project is made possible by a contribution from the National Growth Fund program NXTGEN Hightech. </p><br><br>
             </div>
             <br><br><br><br><br><br><br><br><br><br>
             <div class="divider"></div>
