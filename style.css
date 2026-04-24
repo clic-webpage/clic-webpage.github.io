@@ -197,21 +197,15 @@ h2 {
 
 .benchmark-findings {
     font-size: 18px;
+    list-style: disc outside;
     line-height: 27px;
     margin: 12px 30px 18px 56px;
+    padding-left: 24px;
 }
 
 .benchmark-findings li {
+    display: list-item;
     margin-bottom: 8px;
-    position: relative;
-}
-
-.benchmark-findings li:before {
-    color: #49bf9d;
-    content: "•";
-    font-weight: bold;
-    left: -24px;
-    position: absolute;
 }
 
 
